@@ -1,4 +1,7 @@
+import 'package:app_paises/screens/city_peru.dart';
 import 'package:flutter/material.dart';
+import 'package:app_paises/screens/city_ecuador.dart';
+import 'package:app_paises/screens/city_colombia.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,7 +38,13 @@ class HomeScreen extends StatelessWidget {
                     backgroundColor: Colors.blueAccent,
                     foregroundColor: Colors.white,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const EcuadorScreen()),
+                    );
+                  },
                   child: const Text(
                     'Ecuador',
                     style: TextStyle(fontSize: 28),
@@ -51,7 +60,13 @@ class HomeScreen extends StatelessWidget {
                     backgroundColor: Colors.red[700],
                     foregroundColor: Colors.white,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PeruScreen()),
+                    );
+                  },
                   child: const Text(
                     'Perú',
                     style: TextStyle(fontSize: 28),
@@ -67,7 +82,13 @@ class HomeScreen extends StatelessWidget {
                     backgroundColor: Colors.green,
                     foregroundColor: Colors.white,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ColombiaScreen()),
+                    );
+                  },
                   child: const Text(
                     'Colombia',
                     style: TextStyle(fontSize: 28),
