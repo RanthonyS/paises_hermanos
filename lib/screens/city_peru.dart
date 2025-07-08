@@ -47,7 +47,7 @@ class _PeruScreenState extends State<PeruScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("Hola Peru"),
+          const Text("Bandera de Peru"),
           if (link_bandera.isNotEmpty) Image.network(link_bandera),
           const SizedBox(height: 20),
           if (link_escudo.isNotEmpty) Image.network(link_escudo),

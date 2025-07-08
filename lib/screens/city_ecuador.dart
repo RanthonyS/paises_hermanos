@@ -47,7 +47,7 @@ class _EcuadorScreenState extends State<EcuadorScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("Hola Ecuador"),
+          const Text("Bandera del Ecuador"),
           if (link_bandera.isNotEmpty) Image.network(link_bandera),
           const SizedBox(height: 20),
           if (link_escudo.isNotEmpty) Image.network(link_escudo),

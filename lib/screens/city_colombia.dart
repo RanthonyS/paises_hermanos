@@ -47,7 +47,7 @@ class _ColombiaScreenState extends State<ColombiaScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("Hola Colombia"),
+          const Text("Bandera de Colombia"),
           if (link_bandera.isNotEmpty) Image.network(link_bandera),
           const SizedBox(height: 20),
           if (link_escudo.isNotEmpty) Image.network(link_escudo),
