@@ -10,9 +10,9 @@ class EcuadorScreen extends StatefulWidget {
 }
 
 class _EcuadorScreenState extends State<EcuadorScreen> {
-  String ciudad_name = "";
   String link_bandera = "";
   String link_escudo = "";
+  int link_poblacion = 0;
 
   @override
   void initState() {
@@ -30,13 +30,15 @@ class _EcuadorScreenState extends State<EcuadorScreen> {
 
       var flag = data[0]['flags']['png'];
       var coatOfArms = data[0]['coatOfArms']['png'];
-
+      var population = data[0]['population'];
       print(flag);
       print(coatOfArms);
+      print(population);
 
       setState(() {
         link_bandera = flag;
         link_escudo = coatOfArms;
+        link_poblacion = population;
       });
     }
   }
@@ -44,21 +46,36 @@ class _EcuadorScreenState extends State<EcuadorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text("Bandera del Ecuador"),
-          if (link_bandera.isNotEmpty) Image.network(link_bandera),
-          const SizedBox(height: 20),
-          if (link_escudo.isNotEmpty) Image.network(link_escudo),
-          const SizedBox(height: 20),
-          TextButton(
-            onPressed: () {
-              getData();
-            },
-            child: const Text("Cargar"),
-          )
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text("Bandera del Ecuador"),
+            if (link_bandera.isNotEmpty)
+              SizedBox(
+                width: 200,
+                height: 120,
+                child: Image.network(link_bandera, fit: BoxFit.cover),
+              ),
+            const SizedBox(height: 20),
+            const Text("Escudo del Ecuador"),
+            if (link_escudo.isNotEmpty)
+              SizedBox(
+                width: 150,
+                height: 150,
+                child: Image.network(link_escudo, fit: BoxFit.contain),
+              ),
+            const SizedBox(height: 20),
+            Text("Población: ${link_poblacion.toString()}"),
+            const SizedBox(height: 20),
+            TextButton(
+              onPressed: () {
+                getData();
+              },
+              child: const Text("Cargar"),
+            ),
+          ],
+        ),
       ),
     );
   }
